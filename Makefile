@@ -1,4 +1,4 @@
-.PYTHON: tests
+.PHONY: test
 
 deps:
 	pip install -r requirements.txt
