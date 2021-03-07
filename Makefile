@@ -5,13 +5,17 @@ deps:
 	pip install -r test_requirements.txt
 
 test:
-	PYTHONPATH=. py.test --verbose -s
+	PYTHONPATH=. coverage run -m py.test --verbose -s
 
 run:
 	PYTHONPATH=. FLASK_APP=hello_world flask run
 
 lint:
 	flake8 hello_world test
+
+coverage:
+	coverage report
+	coverage html
 
 docker_build:
 	docker build -t hello-world-printer .
