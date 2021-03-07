@@ -1,6 +1,7 @@
 import unittest
 from hello_world import app
 from hello_world.formater import SUPPORTED
+from hello_world.views import index
 
 
 class FlaskrTestCase(unittest.TestCase):
@@ -16,3 +17,7 @@ class FlaskrTestCase(unittest.TestCase):
     def test_msg_with_output(self):
         rv = self.app.get('/?output=json')
         self.assertEqual(b'{ "imie":"Monika", "msg":"Hello World!"}', rv.data)
+
+    def test_message_output_with_name(self):
+        rv = self.app.get('/?output=json&name=Anna')
+        self.assertEqual(b'{ "imie":"Anna", "msg":"Hello World!"}', rv.data)

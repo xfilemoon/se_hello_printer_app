@@ -15,4 +15,4 @@ class TestFormater(unittest.TestCase):
         name = "asdas"
         msg = "asd"
         result = format_to_xml(msg,name)
-        self.assertEqual(result, "<greetings> <name>asdas</name> <msg>asd</msg> </greetings>")
+        self.assertEqual(result, "<greetings> <name>asdas</name> <msg>asd</msg> </greetings>")  
