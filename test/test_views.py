@@ -1,7 +1,6 @@
 import unittest
 from hello_world import app
 from hello_world.formater import SUPPORTED
-from hello_world.views import index
 
 
 class FlaskrTestCase(unittest.TestCase):

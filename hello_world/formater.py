@@ -23,8 +23,8 @@ def get_formatted(msg, imie, format):
         result = format_to_xml(msg, imie)
     return result
 
+
 def format_to_xml(msg, imie):
-    # return ("<greetings> <name>" + imie + "</name> <msg>" + msg + "</msg> </greetings>")
     greetings = ET.Element("greetings")
     name = ET.SubElement(greetings, "name")
     name.text = imie
@@ -33,12 +33,12 @@ def format_to_xml(msg, imie):
     s = ET.tostring(greetings)
     return s
 
+
 def format_to_json(msg, imie):
     x = {
         "imie": imie,
         "msg": msg
         }
-
     return json.dumps(x)
 
 
