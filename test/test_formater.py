@@ -1,6 +1,9 @@
 from hello_world.formater import plain_text_upper_case
+from hello_world.formater import plain_text_lower_case
 from hello_world.formater import format_to_xml
 from hello_world.formater import plain_text
+from hello_world.formater import format_to_json
+
 import unittest
 
 
@@ -12,17 +15,33 @@ class TestFormater(unittest.TestCase):
         self.assertTrue(name.isupper())
         self.assertTrue(msg.isupper())
 
-    def test_plain_to_xml(self):
-        name = 'Krysia'
-        msg = 'Hello'
+    def test_plain_text_lower_case(self):
+        r = plain_text_lower_case("wwww", "EEEMSG")
+        name = r.split(" ")[0]
+        msg = r.split(" ")[1]
+        self.assertTrue(name.islower())
+        self.assertTrue(msg.islower())
+
+    def test_format_to_xml(self):
+        name = "Krysia"
+        msg = "Hello"
         result = format_to_xml(msg, name)
         self.assertEqual(
             result,
-            b'<greetings><name>Krysia</name><msg>Hello</msg></greetings>'
-            )
+            b"<greetings><name>Krysia</name><msg>Hello</msg></greetings>"
+        )
+
+    def test_format_to_json(self):
+        name = "Kasia"
+        msg = "How are you?"
+        result = format_to_json(msg, name)
+        self.assertEqual(
+            result,
+            '{"imie": "' + name + '", "msg": "' + msg + '"}'
+        )
 
     def test_plain_text(self):
-        name = 'Basia'
-        msg = 'Hi'
+        name = "Basia"
+        msg = "Hi"
         result = plain_text(msg, name)
-        self.assertEqual(result, name + ' ' + msg)
+        self.assertEqual(result, name + " " + msg)
