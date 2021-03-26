@@ -1,4 +1,5 @@
 from hello_world.formater import plain_text_upper_case
+from hello_world.formater import format_to_xml
 import unittest
 
 
@@ -9,3 +10,12 @@ class TestFormater(unittest.TestCase):
         msg = r.split(" ")[1]
         self.assertTrue(name.isupper())
         self.assertTrue(msg.isupper())
+
+    def test_format_to_xml(self):
+        name = 'Krysia'
+        msg = 'Hello'
+        result = format_to_xml(msg, name)
+        self.assertEqual(
+            result,
+            '<greetings><name>Krysia</name><msg>Hello</msg></greetings>'
+            )
