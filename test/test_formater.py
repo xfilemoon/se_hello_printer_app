@@ -1,5 +1,6 @@
 from hello_world.formater import plain_text_upper_case
 from hello_world.formater import format_to_xml
+from hello_world.formater import plain_text
 import unittest
 
 
@@ -19,3 +20,9 @@ class TestFormater(unittest.TestCase):
             result,
             b'<greetings><name>Krysia</name><msg>Hello</msg></greetings>'
             )
+
+    def test_plain_text(self):
+        name = 'Basia'
+        msg = 'Hi'
+        result = plain_text(msg, name)
+        self.assertEqual(result, name + ' ' + msg)
