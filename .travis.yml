@@ -10,3 +10,7 @@ script:
   - make test
   - make docker_build
   - make docker_push
+deploy:
+  provider: heroku
+  app: intense-beach-03257
+  api-key: ${HEROKU_API_KEY}
