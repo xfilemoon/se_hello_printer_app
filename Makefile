@@ -7,6 +7,11 @@ deps:
 test:
 	PYTHONPATH=. py.test --verbose -s
 
+test_xunit:
+	PYTHONPATH=. py.test -s --cov=. --cov-report xml --junit-xml=test_results.xml
+
+test_cov:
+	PYTHONPATH=. py.test --verbose -s --cov=.
 run:
 	PYTHONPATH=. FLASK_APP=hello_world flask run
 
